@@ -1,6 +1,6 @@
-# Derrick — Minimal Theme for Jekyll.
-
-Derrick is a clean minimal and fast theme for a personal blog.
+Zolan - Modern & Minimal Theme for Jekyll
+======
+Zolan is a minimal blog theme for Jekyll.
 
 * * *
 
@@ -11,8 +11,10 @@ Table of Contents
 *   [Deployment](#deployment)
 *   [Posts](#posts)
 *   [Disqus Comments](#DisqusComments)
+*   [Instagram](#instagram)
 *   [Google Analytics](#GoogleAnalytics)
 *   [Update favicon](#UpdateFavicon)
+*   [Credits](#Credits)
 *   [Support](#Support)
 
 * * *
@@ -29,9 +31,13 @@ Table of Contents
 
 * Post sharing
 
+* Subscription form
+
 * Supports Disqus Comments
 
-* Supports Google Analytics
+* Instagram Feed
+
+* Ionicons Icons
 
 * Google Fonts
 
@@ -40,9 +46,13 @@ Table of Contents
 
 ### Demo
 
-Check the theme in action [Demo](https://derrick-jekyll.netlify.com)
+Check the theme in action [Demo](https://artemsheludko.github.io/zolan/)
 
-![Main page preview](https://github.com/artemsheludko/derrick/blob/master/assets/img/derrick-preview.jpg?raw=true)
+![Main page preview](https://github.com/artemsheludko/zolan/blob/master/images/zolan-main-page.png?raw=true)
+
+The post page would look like this:
+
+![Post page preview](https://github.com/artemsheludko/zolan/blob/master/images/zolan-post.png?raw=true)
 
 * * *
 
@@ -60,16 +70,16 @@ To create a new post, you can create a new markdown file inside the \_posts dire
 
       ---
       layout: post
-      title: "Welcome to Jekyll!"
-      date: 2018-05-29 18:05:55 +0300
-      image: '/assets/img/03.jpg'
+      title: Time to give gifts to everyone
+      date: 2018-08-23 16:04:00 +0300
+      image: 03.jpg
       tags: Life
       ---
 
 
 You can set the tags and the post image.
 
-Add post images to **/assets/img/** directory.
+Add post images to **/images/** directory.
 
 For tags, try to not add space between two words, for example, `Ruby on Rails`, could be something like (`ruby-on-rails`, `Ruby_on_Rails`, or `Ruby-on-Rails`).
 
@@ -77,9 +87,9 @@ For tags, try to not add space between two words, for example, `Ruby on Rails`, 
 
 ### Disqus Comments
 
-Derrick Theme comes with Disqus comments enabled.
+Zolan Theme comes with Disqus comments enabled.
 
-Open `_config.yml` file, and change the `mr-brown` value on line 28 with your [Disqus account shortname](https://help.disqus.com/customer/portal/articles/466208).
+Open `_data/settings.yml` file, and change the `mr-brown` value on line 26 with your [Disqus account shortname](https://help.disqus.com/customer/portal/articles/466208).
 
       Comment Section (Disqus)
       disqus-identifier: mr-brown # Add your shortname for Disqus Comment. For example mr-brown
@@ -91,9 +101,38 @@ And also check [Disqus troubleshooting guide](https://help.disqus.com/customer/p
 
 * * *
 
+### Instagram
+
+The Instagram feed is working using [Instafeed.js](http://instafeedjs.com/) to show the photos.
+
+First, you will need to get your account `userId` and `accessToken` from the following URLs:
+
+*   userId: [http://codeofaninja.com/tools/find-instagram-user-id/](http://codeofaninja.com/tools/find-instagram-user-id/)
+*   accessToken: [instagram.pixelunion.net](http://instagram.pixelunion.net/)
+
+Second, open the `js/common.js` file and replace the `userId` and `accessToken` values.
+
+    var instagramFeed = new Instafeed({
+          get: 'user',
+          limit: 6,
+          resolution: 'standard_resolution',
+          userId: '8987997106',
+          accessToken: '8987997106.924f677.8555ecbd52584f41b9b22ec1a16dafb9',
+          template: ''
+    });
+
+
+Third, open the `_data/settings.yml` file and replace the `instafeed: false` on `instafeed: true` value.
+
+    # Instagram Feed
+    instafeed: false # To enable the instafeed, use the value true. To turn off use the value false.
+
+
+* * *
+
 ### Google Analytics
 
-To integrate Google Analytics, open `_config.yml`, and add your Google Analytics identifier.
+To integrate Google Analytics, open `_data/settings.yml`, and add your Google Analytics identifier.
 
     # Google Analytics
     google-analytics: # Add your identifier. For example UA-99631805-1
@@ -106,6 +145,20 @@ To integrate Google Analytics, open `_config.yml`, and add your Google Analytics
 You can find the current favicon (favicon.ico) inside the theme root directory, just replace it with your new favicon.
 
 * * *
+
+### Credits
+
+I have used the following scripts, fonts or other files as listed.
+
+*   [Google Fonts](https://fonts.google.com/specimen/Nunito) (Roboto, Sans Serif).
+*   [Ionicons Icons](https://ionicons.com/)
+*   [FitVids.js](http://fitvidsjs.com/)
+*   [Medium’s Image Zoom](https://github.com/fat/zoom.js)
+*   [Instafeed.js](http://instafeedjs.com/)
+*   [jQuery.com](https://jquery.com/)
+*   Preview Images form [unsplash.com](https://unsplash.com/), [pexels.com](https://www.pexels.com/)
+
+* * *
 ### License
 
 Mit License
@@ -113,5 +166,5 @@ Mit License
 * * *
 
 ### Support
-
-<p>If you’d like to support me so I can continue to provide free content and themes you can become my sponsor on <a href="https://www.patreon.com/artemsheludko" target="_blank">Patreon</a>. <b>Thank you for your support ❤️</b><p>
+<p>If you like the themes that I create you can become my sponsor on <a href="https://www.patreon.com/artemsheludko" target="_blank">Patreon</a>.
+<p align="center"><b>Thank you for your support ❤️</b></p>
